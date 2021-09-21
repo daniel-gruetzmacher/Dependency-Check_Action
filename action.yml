@@ -17,10 +17,11 @@ runs:
     using: 'docker'
     image: 'Dockerfile'
     args:
+        - '--out /github/workspace/reports'
         - '--project ${{ inputs.project }}'
         - '--scan ${{ inputs.path }}'
         - '--format ${{ inputs.format }}'
-        - '--out /github/workspace/reports'
         - '--suppression ${{ inputs.suppression }}'
         - '--failOnCVSS ${{ inputs.failOnCVSS }}'
+        - '--disableAssembly'
         - '--noupdate'
