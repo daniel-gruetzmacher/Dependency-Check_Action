@@ -21,7 +21,4 @@ runs:
         - '--project ${{ inputs.project }}'
         - '--scan ${{ inputs.path }}'
         - '--format ${{ inputs.format }}'
-        - '--suppression ${{ inputs.suppression }}'
-        - '--failOnCVSS ${{ inputs.failOnCVSS }}'
-        - '--disableAssembly'
-        - '--noupdate'
+        - '--args --suppression ${{ inputs.suppression }} --failOnCVSS ${{ inputs.failOnCVSS }} --disableAssembly --noupdate'
