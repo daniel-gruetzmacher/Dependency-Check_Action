@@ -11,14 +11,21 @@ inputs:
         required: true  
     format:
         required: true
-    args:
-        required: false
+    suppression:
+        required: true
+    failOnCVSS:
+        required: true
+    disableAssembly:
+        required: true
 runs:
     using: 'docker'
     image: 'Dockerfile'
     args:
-        - '--out /github/workspace/reports'
         - '--project ${{ inputs.project }}'
         - '--scan ${{ inputs.path }}'
         - '--format ${{ inputs.format }}'
-        - '--args --suppression ${{ inputs.suppression }} --failOnCVSS ${{ inputs.failOnCVSS }} --disableAssembly --noupdate'
+        - '--out /github/workspace/reports'
+        - '--suppression ${{ inputs.suppression }}'
+        - '--failOnCVSS ${{ inputs.failOnCVSS }}'
+        - '--disableAssembly'
+        - '--noupdate'
