@@ -25,7 +25,7 @@ runs:
         - '--scan ${{ inputs.path }}'
         - '--format ${{ inputs.format }}'
         - '--out /github/workspace/reports'
-        - '--suppression "${{ inputs.suppression }}"'
+        - '--suppression "${{ inputs.path }}/${{ inputs.suppression }}"'
         - '--failOnCVSS ${{ inputs.failOnCVSS }}'
         - '--disableAssembly'
         - '--noupdate'
